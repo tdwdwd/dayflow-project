@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>日常｜個人行程與任務</title>
+<style>
+:root{--ink:#202a35;--muted:#87919b;--line:#e9edf0;--bg:#f6f7f8;--white:#fff;--blue:#4779e8;--blue-light:#edf2ff;--mint:#e9f5ef;--green:#388b67;--peach:#fff1e7;--orange:#d68148;--purple:#f1edff;--shadow:0 8px 26px #202a350c}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0;background:none;color:inherit}.app{display:grid;grid-template-columns:228px 1fr;min-height:100vh}.sidebar{background:#fff;border-right:1px solid var(--line);padding:25px 16px;display:flex;flex-direction:column}.brand{font-size:19px;font-weight:750;letter-spacing:-.6px;padding:0 12px 29px;display:flex;align-items:center;gap:10px}.logo{width:32px;height:32px;border-radius:10px;background:var(--blue);color:white;display:grid;place-items:center;font-weight:800}.nav-label{font-size:10px;letter-spacing:1.4px;color:#a2aab1;padding:12px}.nav{display:grid;gap:4px}.nav button{padding:10px 12px;text-align:left;border-radius:9px;color:#69747e;display:flex;gap:12px;align-items:center}.nav button.active,.nav button:hover{background:var(--blue-light);color:var(--blue)}.ni{width:18px;text-align:center;font-size:16px}.sidebar-bottom{margin-top:auto}.profile{border-top:1px solid var(--line);padding:18px 8px 0;display:flex;align-items:center;gap:10px}.avatar{width:34px;height:34px;border-radius:50%;background:#f6ddc7;color:#885c3e;display:grid;place-items:center;font-weight:700;flex:none}.profile b{font-size:12px}.profile small{display:block;color:var(--muted);font-size:11px}.main{padding:27px 34px;max-width:1500px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}.crumb{font-size:12px;color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px}.icon-btn{width:36px;height:36px;border:1px solid var(--line);background:#fff;border-radius:10px;position:relative}.badge{position:absolute;width:6px;height:6px;background:#ee8069;border-radius:50%;right:7px;top:7px}.primary{background:var(--blue);color:white;border-radius:9px;padding:10px 15px;font-weight:650;box-shadow:0 4px 10px #4779e82b}.primary:hover{background:#3768d5}.page-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:21px}.page-head h1{font-size:25px;letter-spacing:-.7px;margin:0 0 5px}.page-head p{color:var(--muted);margin:0;font-size:13px}.date-nav{display:flex;align-items:center;gap:9px}.date-nav strong{font-size:14px;min-width:114px;text-align:center}.round{width:30px;height:30px;border:1px solid var(--line);background:white;border-radius:8px;color:#69747e}.today{border:1px solid var(--line);padding:7px 11px;border-radius:8px;background:white;font-size:12px}.seg{display:flex;background:#edf0f2;padding:3px;border-radius:9px}.seg button{padding:6px 12px;color:#77818a;font-size:12px;border-radius:7px}.seg button.selected{background:#fff;color:var(--ink);box-shadow:0 1px 4px #1112}.layout{display:grid;grid-template-columns:minmax(0,1fr) 286px;gap:19px}.card{background:white;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow)}.calendar-card{padding:18px 19px}.calendar-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.calendar-head h2{font-size:14px;margin:0}.calendar-tools{display:flex;gap:7px}.subtle-btn{font-size:11px;color:#737e88;border:1px solid var(--line);border-radius:7px;padding:6px 9px;background:#fff}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}.weekday{padding:9px 5px;text-align:center;font-size:10px;color:#929ba3;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.day{height:107px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;position:relative;cursor:pointer;transition:.15s}.day:hover{background:#f8faff}.day.other{background:#fafbfc;color:#bcc2c8}.day.selected{background:#f4f7ff;outline:2px solid #7fa0f4;outline-offset:-2px}.daynum{font-size:11px;color:#67717a;width:22px;height:22px;display:grid;place-items:center;border-radius:50%}.day.today-date .daynum{background:var(--blue);color:white}.event.important{background:#fff0ef;color:#c33c36;border-left:3px solid #e34e48;font-weight:750;box-shadow:0 1px 4px #e34e4826}.event.important:before{content:"★ ";}.important-option{display:flex;align-items:center;gap:7px;padding:11px 12px;border:1px solid #f0c9c6;background:#fff8f7;border-radius:9px;color:#bd4540;font-weight:650;font-size:12px;cursor:pointer}.important-option input{accent-color:#d94841}.important-option small{margin-left:auto;color:#a47d7b;font-weight:400;font-size:10px}.event{margin-top:4px;border-radius:4px;padding:3px 5px;font-size:9px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:var(--blue-light);color:#4b6ec0}.event.green{background:var(--mint);color:var(--green)}.event.orange{background:var(--peach);color:var(--orange)}.event.purple{background:var(--purple);color:#7964bd}.more{font-size:9px;color:#8a949d;margin:3px 0 0 4px}.sidecol{display:flex;flex-direction:column;gap:15px}.sidecard{padding:17px}.card-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}.card-title h3{font-size:13px;margin:0}.text-link{color:var(--blue);font-size:11px}.task-row{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f0f2f3}.task-row:last-child{border:0;padding-bottom:0}.check{width:16px;height:16px;border:1.5px solid #c8d0d7;border-radius:5px;flex:none;margin-top:2px;cursor:pointer}.check.done{background:var(--blue);border-color:var(--blue);color:#fff;font-size:11px;display:grid;place-items:center}.task-content{min-width:0;flex:1}.task-content b{font-size:11px;font-weight:600;display:block}.task-content b.struck{text-decoration:line-through;color:#a9b0b6}.meta{font-size:10px;color:#98a1a8;margin-top:3px}.tag{font-size:9px;padding:2px 6px;border-radius:4px;background:#f1f3f5;color:#77818a;white-space:nowrap}.tag.blue{background:var(--blue-light);color:#5376cc}.tag.green{background:var(--mint);color:var(--green)}.habits{display:grid;gap:9px}.habit{display:flex;align-items:center;gap:9px}.habit-emoji{width:27px;height:27px;border-radius:8px;background:#f7f2ec;display:grid;place-items:center;font-size:14px}.habit-name{font-size:11px;flex:1}.dots{display:flex;gap:4px}.dot{width:13px;height:13px;border:1px solid #e0e5e8;border-radius:50%;font-size:8px;display:grid;place-items:center;color:white}.dot.hit{background:#63b58d;border-color:#63b58d}.streak{font-size:9px;color:#9aa3a9;width:26px;text-align:right}.friends{display:flex;align-items:center;justify-content:space-between;margin:10px 0}.friend-left{display:flex;gap:8px;align-items:center}.tiny-avatar{width:27px;height:27px;border-radius:50%;background:#dbe6fa;display:grid;place-items:center;font-size:10px;color:#4769ac}.tiny-avatar.pink{background:#f7e0e5;color:#a35c6c}.tiny-avatar.gold{background:#f5e9ce;color:#96763f}.friend-name{font-size:11px}.status{font-size:9px;color:#4f9a75}.status.busy{color:#d28b4c}.view-toggle{display:flex;align-items:center;gap:8px;color:#8a949d;font-size:10px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}.switch{width:29px;height:16px;border-radius:20px;background:#d7dde2;position:relative;cursor:pointer}.switch:after{content:"";position:absolute;width:12px;height:12px;background:#fff;border-radius:50%;left:2px;top:2px;transition:.15s}.switch.on{background:var(--blue)}.switch.on:after{left:15px}.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin-top:19px}.summary-card{padding:16px 18px}.summary-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.summary-head h3{font-size:13px;margin:0}.list-preview{display:flex;align-items:center;gap:10px}.list-icon{width:31px;height:31px;border-radius:9px;background:#edf2ff;display:grid;place-items:center}.list-preview b{font-size:11px;display:block}.list-preview small{font-size:10px;color:#969fa6}.member-stack{display:flex;margin-left:auto}.member-stack .tiny-avatar{margin-left:-5px;border:2px solid white}.progress{height:5px;background:#edf0f2;border-radius:5px;margin-top:10px;overflow:hidden}.progress span{display:block;height:100%;width:62%;background:#6f91ed;border-radius:5px}.invite-box{display:flex;align-items:center;gap:10px}.invite-box p{font-size:11px;color:#77818a;flex:1;margin:0}.outline{border:1px solid #dce4f7;color:#4779e8;border-radius:8px;padding:8px 10px;font-size:11px;font-weight:600;background:#fff;white-space:nowrap}.modal-backdrop{display:none;position:fixed;inset:0;background:#1a25354f;z-index:4;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{background:white;border-radius:14px;padding:23px;width:min(430px,100%);box-shadow:0 25px 80px #0003}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.modal-head h2{font-size:18px;margin:0}.close{font-size:22px;color:#87919b}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:11px;font-weight:650;color:#69747e}.field input,.field select{padding:10px 11px;border:1px solid #dfe4e8;border-radius:8px;outline:none}.field input:focus,.field select:focus{border-color:#7897ec;box-shadow:0 0 0 3px #4779e81a}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}.secondary{border:1px solid var(--line);border-radius:8px;padding:9px 13px;background:white;color:#69747e}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;background:#253344;color:#fff;padding:11px 17px;border-radius:9px;z-index:8;transition:.2s;box-shadow:0 7px 20px #0002;font-size:12px}.toast.show{opacity:1;transform:translate(-50%,0)}.list-view{display:none}.list-view.show{display:block}.calendar-grid.hide{display:none}.week-grid{display:grid;grid-template-columns:54px repeat(7,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.week-cell{height:57px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;padding:5px;font-size:10px;color:#87919b}.week-cell.head{height:42px;text-align:center;color:#56616c}.week-cell.time{text-align:right;padding:5px 7px}.week-event{font-size:9px;border-radius:4px;padding:4px;background:var(--blue-light);color:#4b6ec0;margin:4px 1px}.week-event.green{background:var(--mint);color:var(--green)}.day-agenda{padding:7px 0}.agenda-row{display:grid;grid-template-columns:78px 1fr;min-height:62px;border-bottom:1px solid var(--line);align-items:center}.agenda-time{font-size:11px;color:#929ba3}.agenda-event{padding:9px 12px;border-left:3px solid var(--blue);background:#f5f7ff;border-radius:5px;font-size:12px}.agenda-event.green{border-color:#52a87e;background:#f1faf5}.agenda-event.orange{border-color:#df985e;background:#fff8f2}.agenda-event small{display:block;color:#8a949d;margin-top:3px}
+@media(max-width:1050px){.app{grid-template-columns:75px 1fr}.sidebar{padding:20px 10px}.brand{padding:0 10px 28px}.brand span:last-child,.nav-label,.nav button .label,.profile>div:last-child{display:none}.nav button{justify-content:center;padding:12px}.profile{justify-content:center;padding:18px 0 0}.layout{grid-template-columns:minmax(0,1fr) 260px}.main{padding:23px 22px}}
+@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{position:fixed;z-index:3;bottom:0;left:0;right:0;height:62px;padding:5px 10px;border:0;border-top:1px solid var(--line);display:block}.brand,.sidebar-bottom,.nav-label{display:none}.nav{display:flex;justify-content:space-around}.nav button{display:grid;gap:0;justify-items:center;font-size:9px;padding:6px 9px}.nav button .label{display:block;font-size:9px}.main{padding:18px 14px 82px}.topbar{margin-bottom:16px}.layout{grid-template-columns:1fr}.sidecol{display:grid;grid-template-columns:1fr 1fr}.sidecol>.card:last-child{grid-column:1/-1}.bottom-row{grid-template-columns:1fr}.page-head{align-items:flex-start;gap:12px;flex-direction:column}.day{height:83px;padding:4px}.event{font-size:8px;padding:2px 3px}.daynum{font-size:10px}.calendar-card{padding:12px 9px}.weekday{font-size:9px;padding:7px 2px}.calendar-head{align-items:flex-start;gap:8px;flex-direction:column}.date-nav{flex-wrap:wrap}.top-actions .primary{padding:8px 10px;font-size:11px}.sidecol{grid-template-columns:1fr}.sidecol>.card:last-child{grid-column:auto}}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field-row .field{margin:6px 0}.priority-high{background:#5a3a1d!important;color:#ffc177!important}.priority-critical{background:#572532!important;color:#ff9ea8!important}.task-row{align-items:center}.task-row .tag{flex:none}
+.event-manage-preview{display:flex;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:10px;background:#ffffff06}.event-manage-preview b{display:block;color:var(--ink);font-size:14px}.event-manage-preview small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.event-dot{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#142e43;color:#56d9ff}.danger-btn{background:linear-gradient(120deg,#e64f68,#b52f52);color:#fff;border-radius:9px;padding:10px 15px;font-weight:700;box-shadow:0 4px 18px #e64f6830}.danger-btn:hover{filter:brightness(1.1)}.event{cursor:pointer}.event:hover{filter:brightness(1.2)}
+.quote-block{max-width:620px}.quote-kicker{font-size:10px;letter-spacing:1.5px;color:#28c7fa;text-transform:uppercase}.quote-block h1{font-size:23px;line-height:1.4;margin:5px 0 3px;letter-spacing:.01em}.quote-block p{font-size:12px;color:#8298b6;margin:0}.quote-block h1:before{content:"“";color:#28c7fa;margin-right:5px}.quote-block h1:after{content:"”";color:#28c7fa;margin-left:5px}@media(max-width:760px){.quote-block h1{font-size:19px}}
+/* TECH THEME — presentation only; interaction and markup remain unchanged */
+:root{--ink:#e8f0ff;--muted:#8298b6;--line:#253955;--bg:#07111f;--white:#0d1b2d;--blue:#28c7fa;--blue-light:#102d43;--mint:#10332f;--green:#46e0b0;--peach:#38271f;--orange:#ffae66;--purple:#282344;--shadow:0 12px 36px #0005}
+body{background:radial-gradient(ellipse at 76% -12%,#143b57 0,transparent 38%),linear-gradient(135deg,#07111f,#091626 62%,#0a1728);color:var(--ink);font-family:Inter,"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.01em}
+.sidebar{background:rgba(8,20,35,.94);border-right:1px solid #1e3852;box-shadow:8px 0 40px #0002}
+.brand{color:#f0f7ff}.logo{background:linear-gradient(145deg,#31d5ff,#5278ff);color:#06111f;box-shadow:0 0 18px #28c7fa66;border-radius:9px}
+.nav-label{color:#5d7795;text-transform:uppercase}.nav button{color:#91a7c2;transition:.18s}.nav button.active,.nav button:hover{background:linear-gradient(90deg,#10314a,#102337);color:#48d7ff;box-shadow:inset 2px 0 #28c7fa}
+.profile{border-color:#203750}.avatar{background:#133d53;color:#62dcff}.profile small{color:#7188a4}
+.main{position:relative}.crumb{color:#7188a4}.page-head h1{color:#f0f7ff;text-shadow:0 0 28px #28c7fa22}.page-head p{color:#8298b6}
+.card{background:linear-gradient(145deg,rgba(14,30,49,.96),rgba(10,23,39,.97));border:1px solid #203a56;border-radius:12px;box-shadow:0 10px 34px #0003,inset 0 1px #ffffff08}
+.calendar-card{background:linear-gradient(145deg,#0c1b2c,#0b1929)}.calendar-grid{border-color:#20364d}.weekday{color:#718ba8;border-color:#20364d;background:#0e2033}.day{border-color:#20364d;background:#0b1929}.day:hover{background:#10283c}.day.other{background:#091522;color:#40546d}.day.selected{background:#10283c;outline-color:#28c7fa;box-shadow:inset 0 0 24px #28c7fa12}.daynum{color:#a8bad1}.day.today-date .daynum{background:#28c7fa;color:#06121f;box-shadow:0 0 12px #28c7fa66}.event{background:#102e45;color:#72dfff;border:1px solid #1c435f}.event.green{background:#10332f;color:#66e4b9;border-color:#1a5149}.event.orange{background:#38271f;color:#ffc08a;border-color:#62432d}.event.purple{background:#282344;color:#c1aaff;border-color:#443b6b}.event.important{background:#3b1c25;color:#ff9a9a;border-color:#a6434d;box-shadow:0 0 12px #ff435222}.more{color:#7289a5}
+.calendar-head h2,.card-title h3,.summary-head h3{color:#e8f0ff}.text-link{color:#52d9ff}.subtle-btn,.today,.round,.icon-btn,.outline,.secondary{background:#0d2033;color:#a9bed7;border-color:#29425d}.subtle-btn:hover,.today:hover,.round:hover,.icon-btn:hover,.outline:hover,.secondary:hover{border-color:#28c7fa;color:#5bdbff}.date-nav strong{color:#d8e9fa}.seg{background:#091625;border:1px solid #20364d}.seg button{color:#7790ad}.seg button.selected{background:#18304a;color:#53d8ff;box-shadow:0 0 12px #28c7fa1c}
+.primary{background:linear-gradient(120deg,#18bde9,#557bff);color:#04121e;box-shadow:0 4px 18px #28c7fa30;font-weight:750}.primary:hover{background:linear-gradient(120deg,#55dfff,#7d9aff)}
+.task-row{border-color:#1b3046}.check{border-color:#48607b}.check.done{background:#25c9a0;border-color:#25c9a0;color:#041a19}.task-content b{color:#dce9f8}.task-content b.struck{color:#71839b}.meta,.list-preview small{color:#7188a4}.tag{background:#192a3e;color:#9cb0c8}.tag.blue{background:#102d43;color:#73dfff}.tag.green{background:#10332f;color:#62ddb2}
+.habit-emoji{background:#1a2d3d}.habit-name,.friend-name,.list-preview b{color:#cfdef0}.dot{border-color:#314b65;background:#0b1929}.dot.hit{background:#32be91;border-color:#32be91}.streak{color:#7188a4}.tiny-avatar{background:#163552;color:#73dfff}.tiny-avatar.pink{background:#392633;color:#ff9eb1}.tiny-avatar.gold{background:#3a3322;color:#ffce78}.status{color:#63dfb0}.status.busy{color:#ffb16c}.view-toggle{border-color:#20364d;color:#8198b4}
+.list-icon{background:#102d43;color:#59d8ff}.member-stack .tiny-avatar{border-color:#0c1b2c}.progress{background:#1c3046}.progress span{background:linear-gradient(90deg,#27c7f4,#6280ff);box-shadow:0 0 10px #28c7fa66}.invite-box p{color:#94a9c2}.outline{color:#61dfff;border-color:#27516e}.badge{background:#ff6e83;box-shadow:0 0 8px #ff6e83}
+.modal-backdrop{background:#020812bb;backdrop-filter:blur(7px)}.modal{background:linear-gradient(145deg,#102238,#0b192b);border:1px solid #2b4968;box-shadow:0 24px 80px #0009}.modal-head h2{color:#eef7ff}.close{color:#8298b6}.field label{color:#a3b6ce}.field input,.field select{background:#091727;border-color:#2b4560;color:#e2efff}.field input::placeholder{color:#596f88}.field input:focus,.field select:focus{border-color:#28c7fa;box-shadow:0 0 0 3px #28c7fa22}.important-option{background:#321b25;border-color:#733542;color:#ff9fa5}.important-option small{color:#ce858c}.toast{background:#d9f6ff;color:#092033;box-shadow:0 6px 24px #28c7fa44}
+.week-grid{border-color:#20364d}.week-cell{border-color:#20364d;color:#8298b6}.week-cell.head{background:#0e2033;color:#a8bed6}.week-event{background:#102e45;color:#72dfff}.week-event.green{background:#10332f;color:#66e4b9}.agenda-row{border-color:#20364d}.agenda-time{color:#8198b4}.agenda-event{background:#102a40;color:#72dfff}.agenda-event.green{background:#10332f;color:#66e4b9}.agenda-event.orange{background:#38271f;color:#ffc08a}.agenda-event small{color:#8198b4}
+@media(max-width:760px){.sidebar{background:rgba(7,17,31,.97);border-color:#20364d}.nav button.active,.nav button:hover{box-shadow:inset 0 2px #28c7fa}}
+
+.login-screen{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,#f6f8fc,#eaf0fb)}.login-screen[hidden]{display:none}.login-card{width:min(420px,100%);padding:34px 30px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 60px #26364b18}.login-mark{width:48px;height:48px;margin:0 auto 16px;border-radius:15px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px}.login-card h1{margin:0 0 7px;font-size:22px}.login-card p{margin:0;color:var(--muted);font-size:13px}.google-button-wrap{min-height:46px;margin:24px auto 13px;display:flex;justify-content:center}.login-help{min-height:18px;font-size:11px!important;color:#a16b3a!important}.login-note{margin-top:20px!important;padding-top:15px;border-top:1px solid var(--line);font-size:10px!important;line-height:1.7}.signout-btn{border:1px solid var(--line);border-radius:8px;background:#fff;padding:7px 10px;color:#69747e;font-size:11px}.signout-btn[hidden]{display:none!important}.google-signin-btn{width:280px;max-width:100%;padding:11px 16px;border:1px solid #dadce0;border-radius:7px;background:#fff;color:#3c4043;font-weight:600}.google-signin-btn:hover{background:#f8faff}
+.ai-launcher{position:fixed;right:24px;bottom:24px;z-index:9;border:1px solid #2b5877;border-radius:999px;background:linear-gradient(120deg,#18bde9,#557bff);color:#04121e;padding:12px 18px;font-weight:750;box-shadow:0 8px 28px #0005}.ai-panel{position:fixed;right:24px;bottom:84px;z-index:9;width:min(380px,calc(100vw - 32px));height:min(520px,calc(100vh - 115px));display:none;grid-template-rows:auto 1fr auto auto;background:#0d1b2d;border:1px solid #29425d;border-radius:16px;box-shadow:0 18px 60px #0008;overflow:hidden}.ai-panel.open{display:grid}.ai-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #20364d}.ai-head strong{color:#e8f0ff}.ai-close{font-size:22px;color:#91a7c2}.ai-messages{display:flex;flex-direction:column;gap:10px;padding:15px;overflow:auto}.ai-message{max-width:90%;padding:10px 12px;border-radius:12px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.ai-message.assistant{align-self:flex-start;background:#132b42;color:#dce9f8}.ai-message.user{align-self:flex-end;background:#174b67;color:#effaff}.ai-notice{padding:0 15px 9px;color:#91a7c2;font-size:10px;line-height:1.5}.ai-form{display:flex;gap:8px;padding:12px;border-top:1px solid #20364d}.ai-form textarea{flex:1;min-width:0;resize:none;height:42px;max-height:90px;padding:10px;border:1px solid #29425d;border-radius:9px;background:#091727;color:#e2efff;font:inherit;font-size:12px}.ai-form button{padding:0 14px;border-radius:9px;background:#28c7fa;color:#06121f;font-weight:750}.ai-form button:disabled{opacity:.55;cursor:wait}@media(max-width:600px){.ai-launcher{right:14px;bottom:74px}.ai-panel{right:8px;bottom:130px;width:calc(100vw - 16px);height:min(65vh,520px)}}
+</style></head><body>
+<div class="app">
+<aside class="sidebar"><div class="brand"><span class="logo">日</span><span>日常 <small style="font-size:10px;color:#9aa2aa;font-weight:500">DAYFLOW</small></span></div>
+<div class="nav-label">工作空間</div><nav class="nav"><button class="active" data-nav="總覽"><span class="ni">▦</span><span class="label">總覽</span></button><button data-nav="行事曆"><span class="ni">▣</span><span class="label">行事曆</span></button><button data-nav="任務清單"><span class="ni">☑</span><span class="label">任務清單</span></button><button data-nav="習慣追蹤"><span class="ni">◉</span><span class="label">習慣追蹤</span></button></nav>
+<div class="nav-label" style="margin-top:22px">協作</div><nav class="nav"><button data-nav="好友"><span class="ni">♧</span><span class="label">好友</span></button><button data-nav="共享清單"><span class="ni">▤</span><span class="label">共享清單</span></button></nav><div class="sidebar-bottom"><div class="nav-label">偏好設定</div><nav class="nav"><button data-nav="設定"><span class="ni">⚙</span><span class="label">設定</span></button></nav><div class="profile"><span class="avatar" id="profileAvatar">?</span><div><b id="profileName">尚未登入</b><small id="profileEmail">使用 Google 帳號</small></div></div></div></aside>
+<main class="main"><div class="topbar"><span class="crumb">工作空間　/　總覽</span><div class="top-actions"><button class="signout-btn" id="signOutButton" hidden>登出</button><button class="icon-btn" title="通知">♧<i class="badge"></i></button><button class="primary" id="newBtn">＋ 新增項目</button></div></div>
+<div class="page-head"><div class="quote-block"><span class="quote-kicker">✦ 每日靈感</span><h1 id="dailyQuote">「千里之行，始於足下。」</h1><p id="quoteAuthor">— 老子</p></div><div class="date-nav"><button class="round" id="prev">‹</button><strong id="monthLabel">2026 年 10 月</strong><button class="round" id="next">›</button><button class="today" id="todayBtn">今天</button><div class="seg" id="viewSwitch"><button data-view="day">日</button><button data-view="week">週</button><button class="selected" data-view="month">月</button></div></div></div>
+<div class="layout"><section class="card calendar-card"><div class="calendar-head"><h2 id="calendarTitle">2026 年 10 月</h2><div class="calendar-tools"><button class="subtle-btn" id="sharedCal">♧　共享行事曆 <span id="sharedCount">2</span></button><button class="subtle-btn" id="filterBtn">☷　篩選</button></div></div><div class="calendar-grid" id="calendarGrid"></div><div class="list-view" id="agendaView"></div></section>
+<div class="sidecol"><section class="card sidecard"><div class="card-title"><h3>今日任務</h3><button class="text-link" id="allTasks">查看全部 →</button></div><div id="taskList"></div><button class="text-link" id="quickTask" style="margin-top:13px">＋ 新增任務</button></section>
+<section class="card sidecard"><div class="card-title"><h3>本週習慣</h3><button class="text-link" id="habitManage">管理 →</button></div><div class="habits" id="habitList"></div></section>
+<section class="card sidecard"><div class="card-title"><h3>好友空檔</h3><button class="text-link" id="friendsLink">查看全部 →</button></div><div class="friends"><div class="friend-left"><span class="tiny-avatar">陳</span><span class="friend-name">陳品妤</span></div><span class="status">● 有空</span></div><div class="friends"><div class="friend-left"><span class="tiny-avatar pink">王</span><span class="friend-name">王子維</span></div><span class="status busy">● 忙碌</span></div><div class="friends"><div class="friend-left"><span class="tiny-avatar gold">周</span><span class="friend-name">周以晴</span></div><span class="status">● 有空</span></div><div class="view-toggle">僅分享忙碌／有空狀態 <span class="switch on" id="privacySwitch"></span></div></section></div></div>
+<div class="bottom-row"><section class="card summary-card"><div class="summary-head"><h3>共享清單</h3><button class="text-link" id="sharedListLink">開啟清單 →</button></div><div class="list-preview"><span class="list-icon">☑</span><div><b>週末露營準備</b><small>8 個項目 · 5 個已完成</small></div><div class="member-stack"><span class="tiny-avatar">陳</span><span class="tiny-avatar pink">王</span><span class="tiny-avatar gold">予</span></div></div><div class="progress"><span></span></div></section><section class="card summary-card"><div class="summary-head"><h3>邀請好友一起規劃</h3><span style="color:#d7dff2">✳</span></div><div class="invite-box"><p>建立共享行程或清單，讓計畫更容易實現。</p><button class="outline" id="inviteBtn">＋ 邀請好友</button></div></section></div>
+</main></div>
+<div class="login-screen" id="loginScreen" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="login-card"><div class="login-mark">日</div><h1 id="loginTitle">登入日常</h1><p>使用 Google 帳號繼續</p>
+    <div class="google-button-wrap"><button class="google-signin-btn" id="googleSignInButton" type="button">G　使用 Google 帳號登入</button></div>
+    <p class="login-help" id="loginHelp">正在載入 Google 登入…</p>
+    <p class="login-note">使用 Firebase Authentication 登入；若登入失敗，這裡會顯示錯誤代碼與處理方式。</p>
+  </div>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div class="modal-head"><h2 id="modalTitle">新增項目</h2><button class="close" id="closeModal">×</button></div><div id="modalBody"></div><div class="modal-actions"><button class="secondary" id="cancelModal">取消</button><button class="primary" id="saveModal">儲存</button></div></div></div><div class="toast" id="toast"></div>
+<button class="ai-launcher" id="aiLauncher" type="button" aria-expanded="false" aria-controls="aiPanel">✦ AI 小幫手</button>
+<section class="ai-panel" id="aiPanel" aria-label="Gemini AI 小幫手">
+  <header class="ai-head"><strong>✦ Gemini AI 小幫手</strong><button class="ai-close" id="aiClose" type="button" aria-label="關閉 AI 小幫手">×</button></header>
+  <div class="ai-messages" id="aiMessages" aria-live="polite"><div class="ai-message assistant">你好！我可以協助整理想法、規劃行程或拆解待辦。你想先處理什麼？</div></div>
+  <p class="ai-notice">送出後，你輸入的訊息會經 Firebase Functions 傳給 Google Gemini。此功能不會自動傳送你的行程或任務資料；請勿輸入密碼或敏感資訊。</p>
+  <form class="ai-form" id="aiForm"><textarea id="aiInput" maxlength="2000" placeholder="輸入訊息…" aria-label="輸入訊息"></textarea><button id="aiSend" type="submit">送出</button></form>
+</section>
+<script>
+const events={
+'2026-10-1':[['09:30','產品週會','blue'],['14:00','健身・上肢','green']], '2026-10-2':[['10:00','專案提案初稿','purple']], '2026-10-3':[['11:00','咖啡：品妤','orange']], '2026-10-5':[['09:00','設計檢視','blue'],['16:00','瑜伽','green']], '2026-10-6':[['13:30','客戶訪談','purple']], '2026-10-7':[['10:00','專注工作','blue'],['19:00','晚餐・家人','orange']], '2026-10-8':[['09:30','產品週會','blue']], '2026-10-9':[['15:00','牙醫回診','orange']], '2026-10-10':[['10:30','河濱慢跑','green']], '2026-10-12':[['11:00','季度規劃','purple']], '2026-10-13':[['09:30','產品週會','blue'],['14:00','設計評審','blue']], '2026-10-14':[['18:30','晚餐・子維','orange']], '2026-10-15':[['09:00','提案簡報','purple']], '2026-10-16':[['13:00','專注時段','blue']], '2026-10-17':[['10:00','瑜伽','green']], '2026-10-19':[['09:30','產品週會','blue']], '2026-10-20':[['15:00','看展・以晴','orange']], '2026-10-21':[['11:00','設計檢視','blue']], '2026-10-22':[['09:30','產品週會','blue']], '2026-10-23':[['16:00','瑜伽','green']], '2026-10-24':[['09:00','市集採買','orange']], '2026-10-26':[['10:00','專注工作','blue']], '2026-10-27':[['09:30','產品週會','blue'],['14:00','專案回顧','purple']], '2026-10-28':[['18:00','慢跑','green']], '2026-10-29':[['12:00','和品妤午餐','orange']], '2026-10-30':[['09:30','產品週會','blue']], '2026-10-31':[['10:00','露營準備','green']]};
+let cursor=new Date(2026,9,1), view='month', selectedDay=null;
+function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};function fmt(d){return `${d.getFullYear()} 年 ${d.getMonth()+1} 月`}
+function getEvents(k){let found=[...(events[k]||[])];for(const source in events){for(const ev of events[source]){if(source===k||ev.repeat==='none'||!ev.repeat)continue;let sourceDate=new Date(source+'T00:00:00'),targetDate=new Date(k+'T00:00:00');let occurs=ev.repeat==='daily'||(ev.repeat==='weekly'&&sourceDate.getDay()===targetDate.getDay())||(ev.repeat==='monthly'&&sourceDate.getDate()===targetDate.getDate());if(occurs){let instance=[targetDate.toTimeString().slice(0,5),ev[1],ev[2]];instance.start=ev.start;instance.end=ev.end;instance.repeat=ev.repeat;instance.reminder=ev.reminder;found.push(instance)}}}return found}
+function manageEvent(date,eventItem){const modalTitle=document.getElementById('modalTitle'),body=document.getElementById('modalBody'),save=document.getElementById('saveModal');modalTitle.textContent='行程選項';body.innerHTML=`<div class="event-manage-preview"><span class="event-dot">${eventItem[2]==='important'?'★':'●'}</span><div><b>${eventItem[1]}</b><small>${date} · ${eventItem[0]}</small></div></div><p style="font-size:12px;color:var(--muted);margin:16px 0 0">刪除後將從日曆中移除。${eventItem.repeat&&eventItem.repeat!=='none'?' 此為重複行程，會一併刪除整個重複項目。':''}</p>`;save.textContent='刪除行程';save.className='danger-btn';save.onclick=()=>{const i=(events[date]||[]).indexOf(eventItem);if(i>=0)events[date].splice(i,1);if(events[date]&&!events[date].length)delete events[date];closeModal();save.className='primary';save.textContent='儲存';renderCalendar();requestFirebaseSave();toast('行程已刪除')};document.getElementById('cancelModal').textContent='取消';document.getElementById('cancelModal').onclick=()=>{closeModal();resetModalButtons()};document.getElementById('closeModal').onclick=()=>{closeModal();resetModalButtons()};backdrop.classList.add('open')}
+function resetModalButtons(){const save=document.getElementById('saveModal');save.className='primary';save.textContent='儲存';document.getElementById('cancelModal').textContent='取消';document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal}
+function hasConflict(date,start,end){let startM=+start.slice(0,2)*60 + +start.slice(3),endM=+end.slice(0,2)*60 + +end.slice(3);return (events[date]||[]).some(e=>{let es=e.start||(+e[0].slice(0,2)*60 + +e[0].slice(3)),ee=e.end||es+60; if(typeof es==='string')es=+es.slice(0,2)*60 + +es.slice(3);if(typeof ee==='string')ee=+ee.slice(0,2)*60 + +ee.slice(3);return startM<ee&&endM>es})}
+function renderCalendar(){document.getElementById('monthLabel').textContent=fmt(cursor);document.getElementById('calendarTitle').textContent= view==='month'?fmt(cursor): view==='week'?'10 月 26 日 – 11 月 1 日':'10 月 30 日，星期五';const grid=document.getElementById('calendarGrid'),agenda=document.getElementById('agendaView');grid.innerHTML='';grid.classList.remove('hide');agenda.classList.remove('show');if(view==='month'){['日','一','二','三','四','五','六'].forEach(w=>{let e=document.createElement('div');e.className='weekday';e.textContent=w;grid.append(e)});let first=new Date(cursor.getFullYear(),cursor.getMonth(),1),start=new Date(first);start.setDate(1-first.getDay());for(let i=0;i<35;i++){let d=new Date(start);d.setDate(start.getDate()+i);let k=key(d),cell=document.createElement('div');cell.className='day'+(d.getMonth()!==cursor.getMonth()?' other':'')+(k==='2026-10-30'?' today-date':'')+(k===selectedDay?' selected':'');cell.innerHTML=`<span class="daynum">${d.getDate()}</span>`;let ev=getEvents(k);ev.slice(0,2).forEach(x=>{let e=document.createElement('div');e.className='event '+x[2];e.textContent=x[0]+' '+x[1];e.title='點擊管理／刪除行程';e.onclick=(event)=>{event.stopPropagation();selectedDay=k;manageEvent(k,x)};cell.append(e)});if(ev.length>2){let m=document.createElement('div');m.className='more';m.textContent=`+${ev.length-2} 項`;cell.append(m)}cell.onclick=()=>{selectedDay=k;renderCalendar();toast(`${d.getMonth()+1} 月 ${d.getDate()} 日`+(ev.length?` · ${ev.length} 個行程`:' · 尚無行程'))};grid.append(cell)}}else{grid.classList.add('hide');agenda.classList.add('show');if(view==='day'){agenda.innerHTML=`<div class="day-agenda"><div class="agenda-row"><div class="agenda-time">09:30 – 10:30</div><div class="agenda-event">產品週會<small>會議室 A · 工作</small></div></div><div class="agenda-row"><div class="agenda-time">11:00 – 12:00</div><div class="agenda-event green">專注工作時段<small>個人 · 專注時間</small></div></div><div class="agenda-row"><div class="agenda-time">14:00 – 15:00</div><div class="agenda-event orange">與品妤午餐<small>共享行程 · 好友</small></div></div><div class="agenda-row"><div class="agenda-time">17:30 – 18:30</div><div class="agenda-event green">健身・下肢訓練<small>個人 · 健康</small></div></div><div class="agenda-row"><div class="agenda-time">全天</div><div class="agenda-event" style="border-color:#b39ce8;background:#f7f4ff">完成提案簡報<small>任務 · 工作</small></div></div></div>`}else{let days=['日 26','一 27','二 28','三 29','四 30','五 31','六 1'];let html='<div class="week-grid"><div class="week-cell head"></div>'+days.map(x=>`<div class="week-cell head">${x}</div>`).join('');for(let r=0;r<8;r++){html+=`<div class="week-cell time">${String(r+8).padStart(2,'0')}:00</div>`+days.map((x,c)=>`<div class="week-cell">${r===1&&c===4?'<div class="week-event">產品週會</div>':''}${r===5&&c===1?'<div class="week-event green">瑜伽</div>':''}${r===3&&c===3?'<div class="week-event">設計評審</div>':''}</div>`).join('')}agenda.innerHTML=html+'</div>'}}}
+let tasks=[{name:'完成提案簡報',meta:'今天 · 下午 5:00',tag:'工作',priority:'高',done:false},{name:'回覆品妤的訊息',meta:'今天 · 下午 2:00',tag:'個人',priority:'一般',done:false},{name:'預訂週末露營場地',meta:'今天 · 晚上 8:00',tag:'共享',priority:'高',done:false}];function renderTasks(){let list=document.getElementById('taskList');list.innerHTML='';tasks.forEach((t,i)=>{let row=document.createElement('div');row.className='task-row';row.innerHTML=`<span class="check ${t.done?'done':''}" data-i="${i}">${t.done?'✓':''}</span><div class="task-content"><b class="${t.done?'struck':''}">${t.name}</b><div class="meta">${t.meta}</div></div><span class="tag ${t.priority==='緊急'?'priority-critical':t.priority==='高'?'priority-high':''}">${t.priority||''}</span><span class="tag ${t.tag==='共享'?'green':t.tag==='工作'?'blue':''}">${t.tag}</span>`;row.querySelector('.check').onclick=()=>{tasks[i].done=!tasks[i].done;renderTasks();requestFirebaseSave()};list.append(row)})}
+let habits=[{emoji:'💧',name:'喝水 8 杯',streak:'5 天',days:[1,1,1,0,1,0,0]},{emoji:'📖',name:'閱讀 20 分鐘',streak:'12 天',days:[1,1,0,1,1,0,0]},{emoji:'🏃',name:'運動',streak:'3 天',days:[1,0,1,0,1,0,0]}];function renderHabits(){document.getElementById('habitList').innerHTML=habits.map((h,i)=>`<div class="habit"><span class="habit-emoji">${h.emoji}</span><span class="habit-name">${h.name}</span><div class="dots">${h.days.map((d,j)=>`<button class="dot ${d?'hit':''}" data-h="${i}" data-d="${j}">${d?'✓':''}</button>`).join('')}</div><span class="streak">${h.streak}</span></div>`).join('');document.querySelectorAll('.dot').forEach(b=>b.onclick=()=>{let h=+b.dataset.h,d=+b.dataset.d;habits[h].days[d]^=1;renderHabits();requestFirebaseSave();toast('習慣紀錄已更新')})}
+function toast(s){let t=document.getElementById('toast');t.textContent=s;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2300)}
+const backdrop=document.getElementById('modalBackdrop');function modal(type){resetModalButtons();let title=document.getElementById('modalTitle'),body=document.getElementById('modalBody'),save=document.getElementById('saveModal');save.onclick=null;if(type==='invite'){title.textContent='邀請好友';body.innerHTML='<p style="font-size:12px;color:#7e8992;margin:0 0 14px">邀請好友加入你的共享空間。</p><div class="field"><label>好友的電子郵件</label><input id="inviteEmail" type="email" placeholder="name@example.com"></div><div class="field"><label>邀請加入</label><select><option>好友空檔與共享行事曆</option><option>週末露營準備清單</option><option>建立新的共享空間</option></select></div><div class="field"><label>權限</label><select><option>可查看忙碌狀態及共享項目</option><option>可編輯共享行程與任務</option></select></div>';save.textContent='寄送邀請';save.onclick=()=>{let v=document.getElementById('inviteEmail').value;if(!v.includes('@'))return toast('請輸入有效的電子郵件地址');closeModal();toast(`邀請已準備寄給 ${v}（原型示範）`)}}else if(type==='task'){title.textContent='新增任務';body.innerHTML='<div class="field"><label>任務名稱</label><input id="taskName" placeholder="例如：準備下週簡報"></div><div class="field"><label>到期日</label><input type="date" id="taskDate" value="2026-10-30"></div><div class="field-row"><div class="field"><label>優先級</label><select id="taskPriority"><option value="一般">一般</option><option value="高">高</option><option value="緊急">緊急</option><option value="低">低</option></select></div><div class="field"><label>分類</label><select id="taskCategory"><option>工作</option><option>個人</option><option>健康</option><option>學習</option><option>家庭</option></select></div></div><div class="field"><label>提醒</label><select id="taskReminder"><option value="none">不提醒</option><option>到期當天上午 9:00</option><option>到期前 1 天</option><option>到期前 1 小時</option></select></div><div class="field"><label>重複</label><select id="taskRepeat"><option value="none">不重複</option><option value="daily">每天</option><option value="weekly">每週</option><option value="monthly">每月</option></select></div><div class="field"><label>指派給</label><select id="assignee"><option>自己</option><option>陳品妤</option><option>王子維</option><option>共同清單成員</option></select></div><div class="field"><label>清單</label><select><option>個人任務</option><option>週末露營準備（共享）</option></select></div>';save.textContent='建立任務';save.onclick=()=>{let n=document.getElementById('taskName').value.trim();if(!n)return toast('請輸入任務名稱');let as=document.getElementById('assignee').value,priority=document.getElementById('taskPriority').value,category=document.getElementById('taskCategory').value,reminder=document.getElementById('taskReminder').value,repeat=document.getElementById('taskRepeat').value;tasks.unshift({name:n,meta:`${document.getElementById('taskDate').value} · 指派給 ${as}${reminder!=='none'?' · 提醒已設定':''}${repeat!=='none'?' · '+({daily:'每天',weekly:'每週',monthly:'每月'}[repeat]):''}`,tag:category,priority,done:false});renderTasks();requestFirebaseSave();closeModal();toast(`任務已建立 · ${priority}優先級${reminder!=='none'?' · 提醒已設定':''}`)}}else if(type==='event'){title.textContent='新增行程';body.innerHTML='<div class="field"><label>行程名稱</label><input id="eventName" placeholder="例如：專案討論"></div><div class="field"><label>日期</label><input type="date" id="eventDate" value="2026-10-30"></div><div class="field"><label>時間</label><div style="display:flex;gap:8px"><input type="time" id="eventStart" value="09:30"><input type="time" id="eventEnd" value="10:30"></div></div><div class="field-row"><div class="field"><label>提醒</label><select id="eventReminder"><option value="none">不提醒</option><option>行程前 10 分鐘</option><option>行程前 30 分鐘</option><option>行程前 1 天</option></select></div><div class="field"><label>重複</label><select id="eventRepeat"><option value="none">不重複</option><option value="daily">每天</option><option value="weekly">每週</option><option value="monthly">每月</option></select></div></div><div class="field"><label>分享設定</label><select><option>僅自己</option><option>分享給好友</option><option>共享行事曆</option></select></div><label class="important-option"><input type="checkbox" id="importantEvent"> <span>★</span> 標記為重大事件 <small>在行事曆中以醒目樣式標示</small></label>';save.textContent='儲存行程';save.onclick=()=>{let n=document.getElementById('eventName').value.trim(),d=document.getElementById('eventDate').value;if(!n)return toast('請輸入行程名稱');let start=document.getElementById('eventStart').value,end=document.getElementById('eventEnd').value,repeat=document.getElementById('eventRepeat').value,reminder=document.getElementById('eventReminder').value,isImportant=document.getElementById('importantEvent').checked;if(end<=start)return toast('結束時間必須晚於開始時間');if(hasConflict(d,start,end))return toast('此時段與既有行程衝突，請調整時間');events[d]=events[d]||[];let event=[start,n,isImportant?'important':'blue'];event.start=start;event.end=end;event.repeat=repeat;event.reminder=reminder;events[d].push(event);renderCalendar();requestFirebaseSave();closeModal();toast(isImportant?'重大事件已新增'+(reminder!=='none'?' · 已設定提醒':''):'行程已新增'+(reminder!=='none'?' · 已設定提醒':''))}}else if(type==='list'){title.textContent='建立共享清單';body.innerHTML='<div class="field"><label>清單名稱</label><input id="listName" placeholder="例如：搬家採買清單"></div><div class="field"><label>邀請成員</label><select><option>選擇好友…</option><option>陳品妤</option><option>王子維</option><option>周以晴</option></select></div><div class="field"><label>清單用途</label><select><option>共同待辦</option><option>活動規劃</option><option>採買清單</option></select></div>';save.textContent='建立清單';save.onclick=()=>{let n=document.getElementById('listName').value.trim();if(!n)return toast('請輸入清單名稱');closeModal();toast(`「${n}」共享清單已建立（原型示範）`)}}backdrop.classList.add('open')}
+function closeModal(){backdrop.classList.remove('open')}document.getElementById('closeModal').onclick=closeModal;document.getElementById('cancelModal').onclick=closeModal;backdrop.onclick=e=>{if(e.target===backdrop)closeModal()};document.getElementById('newBtn').onclick=()=>modal('event');document.getElementById('quickTask').onclick=()=>modal('task');document.getElementById('inviteBtn').onclick=()=>modal('invite');document.getElementById('prev').onclick=()=>{cursor.setMonth(cursor.getMonth()-1);renderCalendar()};document.getElementById('next').onclick=()=>{cursor.setMonth(cursor.getMonth()+1);renderCalendar()};document.getElementById('todayBtn').onclick=()=>{cursor=new Date(2026,9,1);selectedDay='2026-10-30';renderCalendar();toast('已回到今天')};document.querySelectorAll('#viewSwitch button').forEach(b=>b.onclick=()=>{document.querySelector('#viewSwitch .selected').classList.remove('selected');b.classList.add('selected');view=b.dataset.view;renderCalendar()});document.getElementById('privacySwitch').onclick=e=>{e.currentTarget.classList.toggle('on');toast(e.currentTarget.classList.contains('on')?'好友只會看見忙碌／有空狀態':'已暫停分享空檔狀態')};document.getElementById('allTasks').onclick=()=>toast('任務清單檢視已切換（示範）');document.getElementById('sharedCal').onclick=()=>toast('已顯示自己與 2 位好友的共享行程');document.getElementById('filterBtn').onclick=()=>toast('篩選：個人、工作、共享行程');document.getElementById('habitManage').onclick=()=>toast('點擊習慣圓點即可記錄每日完成');document.getElementById('friendsLink').onclick=()=>modal('invite');document.getElementById('sharedListLink').onclick=()=>modal('list');document.getElementById('sharedListLink').ondblclick=()=>modal('list');document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{document.querySelector('.nav button.active')?.classList.remove('active');b.classList.add('active');let name=b.dataset.nav;if(name==='行事曆'){view='week';document.querySelectorAll('#viewSwitch button').forEach(x=>x.classList.toggle('selected',x.dataset.view==='week'));renderCalendar()}else if(name==='任務清單'){modal('task')}else if(name==='好友'){modal('invite')}else if(name==='共享清單'){modal('list')}else if(name==='習慣追蹤'){toast('在本週習慣卡片中點選圓點，可完成每日打卡')}else if(name==='設定'){toast('偏好設定：隱私、提醒與帳號（原型示範）')}else toast('已回到總覽')});
+const dailyQuotes=[
+{quote:'千里之行，始於足下。',author:'老子'},
+{quote:'天才是百分之一的靈感，加上百分之九十九的汗水。',author:'湯瑪斯・愛迪生'},
+{quote:'我沒有失敗，我只是找到了一萬種行不通的方法。',author:'湯瑪斯・愛迪生'},
+{quote:'如果你能夢想它，你就能做到它。',author:'華特・迪士尼'},
+{quote:'人生最大的榮耀，不在於永不跌倒，而在於每次跌倒後都能站起來。',author:'納爾遜・曼德拉'},
+{quote:'重要的不是你看到了什麼，而是你看見了什麼。',author:'亨利・梭羅'},
+{quote:'做你自己，其他位置都有人了。',author:'奧斯卡・王爾德'},
+{quote:'成功不是終點，失敗也非末日；最重要的是繼續前進的勇氣。',author:'溫斯頓・邱吉爾'},
+{quote:'改變世界的最好方法，就是從自己開始。',author:'甘地'},
+{quote:'不積跬步，無以至千里。',author:'荀子'},
+{quote:'想像力比知識更重要。',author:'愛因斯坦'},
+{quote:'你必須成為你希望在世界上看見的改變。',author:'甘地'},
+{quote:'每一個偉大的夢想，都始於一個夢想家。',author:'哈莉特・塔布曼'},
+{quote:'幸福不是現成的，它來自你自己的行動。',author:'達賴喇嘛'},
+{quote:'此刻最重要的，是把眼前的事做好。',author:'佛陀'}];
+function showDailyQuote(){const now=new Date(),index=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000)%dailyQuotes.length,item=dailyQuotes[index];document.getElementById('dailyQuote').textContent=item.quote;document.getElementById('quoteAuthor').textContent='— '+item.author}
+showDailyQuote();
+renderCalendar();renderTasks();renderHabits();
+
+function requestFirebaseSave(){if(typeof window.saveDayflowData==='function')window.saveDayflowData()}
+window.showDayflowToast=toast;
+window.readDayflowData=()=>({
+  events:Object.fromEntries(Object.entries(events).map(([date,items])=>[date,items.map(item=>{
+    const saved={time:item[0],title:item[1],color:item[2]};
+    for(const field of ['start','end','repeat','reminder'])if(item[field]!==undefined)saved[field]=item[field];
+    return saved;
+  })])),
+  tasks:JSON.parse(JSON.stringify(tasks)),
+  habits:JSON.parse(JSON.stringify(habits))
+});
+window.loadDayflowData=data=>{
+  for(const date of Object.keys(events))delete events[date];
+  for(const [date,items] of Object.entries(data.events||{}))events[date]=(items||[]).map(item=>{
+    const event=[item.time,item.title,item.color];
+    for(const field of ['start','end','repeat','reminder'])if(item[field]!==undefined)event[field]=item[field];
+    return event;
+  });
+  if(Array.isArray(data.tasks))tasks=data.tasks;
+  if(Array.isArray(data.habits))habits=data.habits;
+  renderCalendar();renderTasks();renderHabits();
+};
+</script>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js';
+import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-functions.js';
+
+// Copy the Web app configuration from Firebase Console > Project settings > Your apps.
+const firebaseConfig = {
+  apiKey: 'AIzaSyCLHNdVRTrfRV4B2VB0J92Jmk_8devVHlc',
+  authDomain: 'plan2026-92db6.firebaseapp.com',
+  projectId: 'plan2026-92db6',
+  storageBucket: 'plan2026-92db6.firebasestorage.app',
+  messagingSenderId: '813680905842',
+  appId: '1:813680905842:web:fa05d9128627c6bf22fceb'
+};
+const loginScreen = document.getElementById('loginScreen');
+const loginHelp = document.getElementById('loginHelp');
+const signInButton = document.getElementById('googleSignInButton');
+const signOutButton = document.getElementById('signOutButton');
+const firebaseConfigured = Boolean(firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId && firebaseConfig.appId);
+
+function showUser(user) {
+  if (user) {
+    document.getElementById('profileName').textContent = user.displayName || user.email || 'Google 使用者';
+    document.getElementById('profileEmail').textContent = user.email || 'Google 帳號';
+    document.getElementById('profileAvatar').textContent = (user.displayName || user.email || 'G').trim().charAt(0).toUpperCase();
+    loginScreen.hidden = true;
+    signOutButton.hidden = false;
+  } else {
+    document.getElementById('profileName').textContent = '尚未登入';
+    document.getElementById('profileEmail').textContent = '使用 Google 帳號';
+    document.getElementById('profileAvatar').textContent = '?';
+    loginScreen.hidden = false;
+    signOutButton.hidden = true;
+  }
+}
+
+if (!firebaseConfigured) {
+  loginHelp.textContent = '請先在程式中的 firebaseConfig 填入 Firebase 網頁應用設定。';
+  signInButton.addEventListener('click', () => {
+    loginHelp.textContent = '尚未設定 Firebase。請填入設定並在 Firebase Console 啟用 Google 登入。';
+  });
+} else {
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const functions = getFunctions(app, 'asia-east1');
+  const askPlanningAssistant = httpsCallable(functions, 'askPlanningAssistant');
+  const provider = new GoogleAuthProvider();
+  let currentDataRef = null;
+  let saveTimer = null;
+  window.saveDayflowData = () => {
+    if (!currentDataRef) return;
+    clearTimeout(saveTimer);
+    const ref = currentDataRef;
+    const data = { ...window.readDayflowData(), updatedAt: serverTimestamp() };
+    saveTimer = setTimeout(() => setDoc(ref, data)
+      .then(() => window.showDayflowToast?.('已儲存到 Firebase'))
+      .catch(error => {
+        console.error('Firestore save failed', error);
+        window.showDayflowToast?.('雲端儲存失敗，請檢查網路或 Firestore 規則。');
+      }), 350);
+  };
+  signInButton.addEventListener('click', async () => {
+    signInButton.disabled = true;
+    loginHelp.textContent = '正在開啟 Google 登入…';
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      const messages = {
+        'auth/unauthorized-domain': '此網站網址尚未加入 Firebase 授權網域；請在 Firebase Authentication 的設定中加入目前網址的網域。',
+        'auth/popup-blocked': '瀏覽器擋住了 Google 登入視窗；請允許此網站開啟彈出式視窗後再試。',
+        'auth/popup-closed-by-user': '登入視窗已關閉，想登入時可以再試一次。',
+        'auth/operation-not-allowed': 'Firebase 專案尚未啟用 Google 登入提供者。',
+        'auth/invalid-api-key': 'Firebase 網頁應用程式設定中的 API 金鑰無效，請重新核對 firebaseConfig。',
+        'auth/network-request-failed': '無法連線到 Google 或 Firebase；請檢查網路後再試。'
+      };
+      const code = error?.code || 'unknown';
+      loginHelp.textContent = `${messages[code] || 'Google 登入未完成，請依錯誤代碼檢查 Firebase 設定。'}（錯誤代碼：${code}）`;
+      console.error('Firebase Google sign-in failed', error);
+    } finally {
+      signInButton.disabled = false;
+    }
+  });
+  onAuthStateChanged(auth, async user => {
+    if (!user) {
+      currentDataRef = null;
+      showUser(null);
+      loginHelp.textContent = '請選擇 Google 帳號登入。';
+      return;
+    }
+    loginHelp.textContent = '正在讀取你的雲端資料…';
+    signInButton.disabled = true;
+    const ref = doc(db, 'users', user.uid, 'appData', 'main');
+    try {
+      const snapshot = await getDoc(ref);
+      if (snapshot.exists()) window.loadDayflowData(snapshot.data());
+      currentDataRef = ref;
+      showUser(user);
+    } catch (error) {
+      currentDataRef = null;
+      showUser(null);
+      loginHelp.textContent = '無法載入雲端資料，請確認 Firestore 已建立並套用個人資料安全規則。';
+      console.error('Firestore load failed', error);
+    } finally {
+      signInButton.disabled = false;
+    }
+  });
+  signOutButton.addEventListener('click', async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      loginHelp.textContent = '登出失敗，請再試一次。';
+      console.error('Firebase sign-out failed', error);
+    }
+  });
+  const aiPanel = document.getElementById('aiPanel');
+  const aiLauncher = document.getElementById('aiLauncher');
+  const aiMessages = document.getElementById('aiMessages');
+  const aiInput = document.getElementById('aiInput');
+  const aiForm = document.getElementById('aiForm');
+  const aiSend = document.getElementById('aiSend');
+  const addAiMessage = (text, role) => {
+    const message = document.createElement('div');
+    message.className = `ai-message ${role}`;
+    message.textContent = text;
+    aiMessages.append(message);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  };
+  const setAiPanelOpen = open => {
+    aiPanel.classList.toggle('open', open);
+    aiLauncher.setAttribute('aria-expanded', String(open));
+    if (open) aiInput.focus();
+  };
+  aiLauncher.addEventListener('click', () => setAiPanelOpen(!aiPanel.classList.contains('open')));
+  document.getElementById('aiClose').addEventListener('click', () => setAiPanelOpen(false));
+  aiForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const message = aiInput.value.trim();
+    if (!message || aiSend.disabled) return;
+    if (!auth.currentUser) {
+      addAiMessage('請先使用 Google 帳號登入，再使用 AI 小幫手。', 'assistant');
+      return;
+    }
+    addAiMessage(message, 'user');
+    aiInput.value = '';
+    aiSend.disabled = true;
+    aiSend.textContent = '…';
+    const pending = document.createElement('div');
+    pending.className = 'ai-message assistant';
+    pending.textContent = '正在整理回覆…';
+    aiMessages.append(pending);
+    try {
+      const result = await askPlanningAssistant({ message });
+      pending.textContent = result.data?.text || '目前沒有收到回覆，請稍後再試。';
+    } catch (error) {
+      console.error('AI assistant request failed', error);
+      const descriptions = {
+        'functions/not-found': 'AI 後端尚未部署到 Firebase。',
+        'functions/unauthenticated': '登入狀態已失效，請重新登入。',
+        'functions/failed-precondition': 'Gemini API 金鑰尚未設定在 Firebase Functions。',
+        'functions/resource-exhausted': '目前請求較多，請稍後再試。',
+        'functions/unavailable': '目前無法連線到 AI 服務，請稍後再試。'
+      };
+      pending.textContent = descriptions[error?.code] || 'AI 服務目前無法回覆，請確認 Firebase Functions 部署狀態。';
+    } finally {
+      aiSend.disabled = false;
+      aiSend.textContent = '送出';
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+      aiInput.focus();
+    }
+  });
+}
+</script></body></html>
