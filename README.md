@@ -1,18 +1,21 @@
 # 日常 Dayflow
 
-Firebase Authentication 使用 Google 登入，Firestore 將每位使用者的行程、任務與習慣存入自己的 `users/{uid}/appData/main` 文件。Firestore 規則只允許登入者讀寫自己的文件。
+個人行程與任務管理網站，使用 Firebase Authentication 的 Google 登入，並將每位使用者的資料儲存在 Firestore 的 `users/{uid}/appData/main`。Firestore 規則只允許登入者讀寫自己的資料。
 
-## Gemini AI 小幫手
+## Gemini 行程小幫手
 
-前端只呼叫 Firebase Callable Function `askPlanningAssistant`。Cloud Function 會驗證 Firebase 登入狀態，再把使用者這次輸入的訊息送至 Google Gemini。API 金鑰使用 Firebase Functions Secret，不放進 `index.html`。目前不會把 Firestore 中的行程或任務資料傳給 Gemini。
+聊天功能使用 Firebase AI Logic 的 Gemini Developer API。使用者送出問題時，瀏覽器會把問題、接下來 30 天的行程及未完成任務傳給 Gemini，讓它依照個人資料回答。資料只從目前登入者的瀏覽器讀取，不會透過其他使用者的資料查詢。
 
-部署前需要：
+首次設定 Firebase AI Logic：
 
-1. 安裝 Node.js 20 與 Firebase CLI，並登入有 `plan2026-92db6` 專案權限的 Google 帳號。
-2. 取得 Gemini API 金鑰，於 Firebase 專案設定 Secret：`firebase functions:secrets:set GEMINI_API_KEY`。
-3. Firebase Functions 部署需要 Firebase Blaze 計費方案；檢查預算與計費設定後再部署：`firebase deploy --only functions`。
-4. 使用 `http://localhost` 或正式網站網域開啟前端。`file://` 本機檔案網址無法用於 Google OAuth。
+1. 安裝 Node.js 20 以上版本，並在此專案根目錄使用已登入 Firebase 的 CLI。
+2. 確認 CLI 目前選取 `plan2026-92db6`，再執行 `npx -y firebase-tools@latest init ailogic` 啟用 Firebase AI Logic。
+3. 在 Firebase Console 的 App Check 為 Web app 註冊 reCAPTCHA Enterprise，並將 `tdwdwd.github.io` 加入允許網域。
+4. 將該 Web app 的 reCAPTCHA Enterprise site key 填入 `index.html` 的 `recaptchaEnterpriseSiteKey`。
+5. 將更新後的 `index.html` 發佈至 GitHub Pages。
+
+Firebase AI Logic 會在 Firebase 端代理 Gemini API 請求，不需把 Gemini API 金鑰寫入網站或 Firebase Functions。App Check 會為網站請求附上有效的應用程式驗證。
 
 ## GitHub Pages
 
-`index.html` 可作為 GitHub Pages 靜態網站入口。發布前需先建立或選擇 GitHub repository，將網站的 GitHub Pages 網域加入 Firebase Authentication 授權網域，再在 GitHub repository 設定 Pages。不要把 Gemini API 金鑰提交到 GitHub。
+`index.html` 是網站入口。發佈後，請在 Firebase Authentication 的授權網域清單保留 `tdwdwd.github.io`，以允許 Google 登入。
