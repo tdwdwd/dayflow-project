@@ -48,6 +48,7 @@ body{background:radial-gradient(ellipse at 76% -12%,#143b57 0,transparent 38%),l
   <div class="login-card"><div class="login-mark">日</div><h1 id="loginTitle">登入日常</h1><p>使用 Google 帳號繼續</p>
     <div class="google-button-wrap"><button class="google-signin-btn" id="googleSignInButton" type="button">G　使用 Google 帳號登入</button></div>
     <p class="login-help" id="loginHelp">正在載入 Google 登入…</p>
+    <p><a id="publishedSiteLink" href="https://tdwdwd.github.io/dayflow-project/" hidden>開啟已發布網站</a></p>
     <p class="login-note">使用 Firebase Authentication 登入；若登入失敗，這裡會顯示錯誤代碼與處理方式。</p>
   </div>
 </div>
@@ -140,7 +141,10 @@ const loginScreen = document.getElementById('loginScreen');
 const loginHelp = document.getElementById('loginHelp');
 const signInButton = document.getElementById('googleSignInButton');
 const signOutButton = document.getElementById('signOutButton');
+const publishedSiteLink = document.getElementById('publishedSiteLink');
 const firebaseConfigured = Boolean(firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId && firebaseConfig.appId);
+const openedFromLocalFile = location.protocol === 'file:';
+const localFileLoginHelp = '目前是從電腦本機檔案開啟，Firebase Google 登入無法使用。請改用下方已發布網站。';
 
 function showUser(user) {
   if (user) {
@@ -158,7 +162,11 @@ function showUser(user) {
   }
 }
 
-if (!firebaseConfigured) {
+if (openedFromLocalFile) {
+  loginHelp.textContent = localFileLoginHelp;
+  signInButton.disabled = true;
+  publishedSiteLink.hidden = false;
+} else if (!firebaseConfigured) {
   loginHelp.textContent = '請先在程式中的 firebaseConfig 填入 Firebase 網頁應用設定。';
   signInButton.addEventListener('click', () => {
     loginHelp.textContent = '尚未設定 Firebase。請填入設定並在 Firebase Console 啟用 Google 登入。';
